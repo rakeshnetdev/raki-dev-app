@@ -1,0 +1,30 @@
+
+https://medium.com/@dhormale/automate-end-to-end-e2e-testing-for-angular-7-using-protractor-jasmine-4ce171aaeedc
+
+Cheatsheet for accessing elements:
+element(by.id('firstName'))
+
+element(by.css('.signout'))
+
+element(by.model('address.city')) 
+
+element(by.binding('address.city')); 
+
+element(by.input('firstName'));
+
+element(by.input('firstName')).clear();
+
+element(by.buttonText('Close'));
+
+element(by.partialButtonText('Save'));
+
+element(by.linkText('Save'));
+
+element(by.partialLinkText('Save'));
+
+element(by.css('img[src*='assets/img/profile.png']')); 
+element(by.css('.pet .cat'));
+element(by.cssContainingText('.pet', 'Dog'));
+
+allColors = element.all(by.options('c c in colors'));
+

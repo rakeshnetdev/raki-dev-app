@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,7 +10,21 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+ 
     expect(page.getTitleText()).toEqual('raki-dev-app app is running!');
+  });
+
+  it('should display relevent commands based on selection', () => {
+  page.navigateTo();
+
+  const searchResults = element.all(by.css('.card.card-small'));
+  expect(searchResults.count()).toBe(7);
+  const btn = searchResults.get(2);
+  btn.click();
+  const terminal = element(by.css('.terminal pre')).getText();
+  browser.sleep(10000);
+
+  expect(terminal).toEqual('ng add @angular/material');
   });
 
   afterEach(async () => {
